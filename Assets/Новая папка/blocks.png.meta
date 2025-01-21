@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e4ef7787f299d3a41a5705a2afb513df
+guid: 7798f96b749a6c545a88f3579e934c4e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,75 +123,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GameDev_2D_block-3_0
+      name: blocks_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 0
-        width: 165
-        height: 129
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c0a2b9b840770045a26f0d96e876ad5
-      internalID: 1392122739
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GameDev_2D_block-3_1
-      rect:
-        serializedVersion: 2
-        x: 165
-        y: 13
-        width: 129
-        height: 116
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2331afb754def38428ee3fd3a04679e3
-      internalID: -1528183801
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GameDev_2D_block-3_2
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 0
-        width: 165
-        height: 130
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5db196000d55cdb4ab1af7cb28d6e323
-      internalID: -1564630711
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GameDev_2D_block-3_3
-      rect:
-        serializedVersion: 2
-        x: 295
-        y: 0
-        width: 130
+        width: 131
         height: 131
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -200,8 +137,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d16640223c7f4048bcc9f1a5a1e9f06
-      internalID: 1754747857
+      spriteID: 3e5e5b2942af2eb4480ba027a70ee5ef
+      internalID: -1601319139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks_1
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 0
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cc2c12e57a2520469623d156547911c
+      internalID: -1981747005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks_2
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 0
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52cf71c505c3acc4fbdf9b35fb7d55f1
+      internalID: 217651429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks_3
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 0
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e3cb674c4acd8a409200e94034755d4
+      internalID: -203397003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks_4
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 0
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e4d72568555e904aa18176fe2c2d635
+      internalID: -908171411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks_5
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 0
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5069d60d219d85948aec3227401d4c7b
+      internalID: -951648617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks_6
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 0
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2db05f673e74059469fbd564c2aba588
+      internalID: 2040946155
       vertices: []
       indices: 
       edges: []
@@ -217,10 +280,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GameDev_2D_block-3_0: 1392122739
-      GameDev_2D_block-3_1: -1528183801
-      GameDev_2D_block-3_2: -1564630711
-      GameDev_2D_block-3_3: 1754747857
+      blocks_0: -1601319139
+      blocks_1: -1981747005
+      blocks_2: 217651429
+      blocks_3: -203397003
+      blocks_4: -908171411
+      blocks_5: -951648617
+      blocks_6: 2040946155
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
