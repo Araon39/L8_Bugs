@@ -4,17 +4,24 @@ using UnityEngine.UI; // Импортируем пространство имен для работы с UI
 public class HealthController : MonoBehaviour
 {
     public Slider slider; // Ссылка на UI-компонент Slider
+    public GameObject gameOverCanvas; // Ссылка на Canvas для экрана конца игры
     private static float sliderValue = 10; // Начальное значение слайдера
 
     void Start()
     {
         slider.value = sliderValue; // Устанавливаем начальное значение слайдера
+        gameOverCanvas.SetActive(false); // Убедимся, что экран конца игры отключен
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Этот метод вызывается каждый кадр, но в данном случае он пустой
+        // Проверяем, достигло ли значение слайдера нуля
+        if (slider.value <= 0)
+        {
+            // Активируем экран конца игры
+            gameOverCanvas.SetActive(true);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
