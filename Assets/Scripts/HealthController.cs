@@ -6,6 +6,7 @@ public class HealthController : MonoBehaviour
     public Slider slider; // Ссылка на UI-компонент Slider
     public GameObject gameOverCanvas; // Ссылка на Canvas для экрана конца игры
     private static float sliderValue = 10; // Начальное значение слайдера
+    private float maxHealth = 10;
 
     void Start()
     {
@@ -32,5 +33,18 @@ public class HealthController : MonoBehaviour
             slider.value -= 1; // Уменьшаем значение слайдера на 1
             sliderValue = slider.value; // Обновляем значение sliderValue
         }
+
+        if (collision.gameObject.CompareTag("Medicine"))
+        {
+            // Устанавливаем значение слайдера на максимальное значение здоровья
+            slider.value = maxHealth;
+
+            // Обновляем значение слайдера, чтобы отобразить изменения
+            sliderValue = slider.value;
+
+            // Уничтожаем объект, с которым произошло столкновение (например, медицинский предмет)
+            Destroy(collision.gameObject);
+        }
+
     }
 }

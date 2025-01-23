@@ -5,52 +5,75 @@ using UnityEngine.U2D;
 
 public class Boss : MonoBehaviour
 {
-    public float speed = 0.1f;
-    public Vector3[] positions;
-    public Slider slider;
-
-    private int indexPosition;
-    private SpriteRenderer sprite; // Объявляем переменную для Sprite
+    public float speed = 0.1f; // Скорость передвижения объекта
+    public Vector3[] positions; // Массив позиций для патрулирования
+    public Slider slider; // Слайдер, представляющий здоровье объекта
+    
+    private int indexPosition; // Индекс текущей позиции в массиве positions
+    private SpriteRenderer sprite; // Компонент SpriteRenderer для управления спрайтом
+    
+    public Transform enemyBase; // Целевая позиция (база врага)
 
     private void Start()
     {
-        sprite = GetComponent<SpriteRenderer>(); // Получаем компонент SpriteRenderer при старте
+        // Получаем компонент SpriteRenderer при старте
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        // Перемещаем объект к следующей позиции
-        transform.position = Vector3.MoveTowards(transform.position, positions[indexPosition], speed);
-
-        // Проверяем, достиг ли объект текущей позиции
-        if (transform.position == positions[indexPosition])
+        // Если здоровье объекта равно 0, уничтожаем его
+        if (slider.value == 0)
         {
-            // Если это не последняя позиция, переходим к следующей
-            if (indexPosition < positions.Length - 1)
-            {
-                indexPosition++;
-                sprite.flipX = false; // Отключаем зеркальное отображение спрайта
-            }
-            else
-            {
-                indexPosition = 0; // Возвращаемся к начальной позиции
-                sprite.flipX = true; // Включаем зеркальное отображение спрайта
-            }
+            Destroy(gameObject);
+        }
+        // Если здоровье объекта равно 1, двигаем его к базе врага
+        else if (slider.value == 1)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, enemyBase.position, speed);
+        }
+        // Если здоровье объекта больше 1, двигаем его по заданным позициям
+        else if (slider.value > 1)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, positions[indexPosition], speed);
 
-            // Проверяем значение слайдера
-            if (slider.value == 0)
+            // Если объект достиг текущей позиции
+            if (transform.position == positions[indexPosition])
             {
-                Destroy(gameObject); // Уничтожаем объект, если значение слайдера равно 0
+                // Если это не последняя позиция, переходим к следующей и отключаем зеркальное отображение спрайта
+                if (indexPosition < positions.Length - 1)
+                {
+                    indexPosition++;
+                    sprite.flipX = false;
+                }
+                // Если это последняя позиция, возвращаемся к первой и включаем зеркальное отображение спрайта
+                else
+                {
+                    indexPosition = 0;
+                    sprite.flipX = true;
+                }
             }
         }
     }
 
+    // Обработка столкновения с другим объектом
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Проверяем, столкнулись ли мы с объектом с тегом "Player"
+        // Если столкнулись с объектом с тегом "Player", уменьшаем здоровье объекта
         if (collision.gameObject.CompareTag("Player"))
         {
-            slider.value -= 1; // Уменьшаем значение слайдера на 1
+            slider.value -= 1;
         }
     }
+
+    // Обработка столкновения с другим объектом
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Если столкнулись с объектом с тегом "EnemyBase", устанавливаем здоровье объекта на 3
+        if (collision.gameObject.CompareTag("EnemyBase"))
+        {
+            slider.value = 3;
+        }
+    }
+
 }
