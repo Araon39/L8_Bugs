@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 781955824770709574}
   - component: {fileID: 1052433562474530143}
   - component: {fileID: 1944282446326293188}
+  - component: {fileID: 4562093483019366651}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -185,3 +186,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 0}
+--- !u!114 &4562093483019366651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360277222019711860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7323f2ea1ba3004f9d1e64dec7475eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 3
+  livesText: {fileID: 0}
+  gameOverCanvas: {fileID: 0}
