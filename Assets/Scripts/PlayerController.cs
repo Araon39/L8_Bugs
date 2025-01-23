@@ -2,55 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Класс PlayerController наследуется от MonoBehaviour, что позволяет использовать его в Unity
 public class PlayerController : MonoBehaviour
 {
-    // Переменная для хранения скорости персонажа
-    private int speed = 10;
+  
+    public float speed = 10f;       // Скорость персонажа  
+    public float jumpForce = 5f;    // Сила прыжка   
+    private bool isGrounded = true; // Флаг для проверки, находится ли игрок на земле   
+    private Rigidbody2D rb;         // Компонент Rigidbody2D    
+    private Animator animator;      // Компонент Animator для управления анимациями
 
-    // Переменная для хранения силы прыжка
-    private int force = 5;
-
-    // Переменная для хранения компонента SpriteRenderer, который отвечает за отображение спрайта
-    private SpriteRenderer sprite;
-
-    // Переменная для хранения компонента Rigidbody2D, который отвечает за физику объекта
-    private Rigidbody2D rb;
-
-    // Метод Start вызывается перед первым обновлением кадра
     void Start()
     {
-        // Получаем компонент SpriteRenderer с текущего GameObject и сохраняем его в переменной sprite
-        sprite = GetComponent<SpriteRenderer>();
-
-        // Получаем компонент Rigidbody2D с текущего GameObject и сохраняем его в переменной rb
+        // Получаем компоненты Rigidbody2D и Animator
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
-    // Метод Update вызывается один раз за кадр
     void Update()
     {
-        // Получаем горизонтальное значение от клавиатуры или джойстика
+        // Получаем горизонтальное значение от ввода
         float horizontal = Input.GetAxis("Horizontal");
 
-        // Перемещаем персонажа в горизонтальном направлении
-        // Vector2.right - вектор, направленный вправо
-        // Time.deltaTime - время, прошедшее с последнего кадра, используется для плавного перемещения
-        // speed - скорость перемещения
-        // horizontal - направление перемещения (-1 для движения влево, 1 для движения вправо)
+        // Двигаем персонажа
         transform.Translate(Vector2.right * Time.deltaTime * speed * horizontal);
 
-        // Если персонаж движется влево (horizontal < 0), то переворачиваем спрайт по оси X
-        sprite.flipX = horizontal < 0;
-
-        // Проверяем, нажата ли клавиша пробела (Space)
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Если игрок движется, включаем анимацию бега
+        if (horizontal != 0)
         {
-            // Применяем силу к Rigidbody2D вверх, чтобы персонаж прыгнул
-            // Vector2.up - вектор, направленный вверх
-            // force - сила прыжка
-            // ForceMode2D.Impulse - тип применения силы (мгновенный импульс)
-            rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+            animator.SetBool("Walking", true);
+            // Поворачиваем котика в сторону движения
+            transform.localScale = new Vector3(Mathf.Sign(horizontal), 1, 1);
+        }
+        else
+        {
+            // Останавливаем анимацию бега, если игрок стоит на месте
+            animator.SetBool("Walking", false);
+        }
+
+        // Если нажата клавиша пробела и персонаж на земле, то прыгаем
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            isGrounded = false; // Устанавливаем флаг, что персонаж в воздухе
+            animator.SetTrigger("Jump"); // Запускаем анимацию прыжка
+        }
+    }
+
+    // Проверяем, коснулся ли персонаж земли
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true; // Персонаж снова на земле
         }
     }
 }

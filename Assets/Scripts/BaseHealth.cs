@@ -20,7 +20,7 @@ public class HealthManager : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         // Проверка, имеет ли объект, с которым произошло столкновение, тег "Obstacles" или "Enemy"
-        if (other.gameObject.CompareTag("Obstacles") || other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             // Уменьшение количества жизней на 1
             lives--;
