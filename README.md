@@ -4,3 +4,4 @@
 Он — виртуальный герой, который защищает систему от ошибок и сбоев!
 
 ![image](https://github.com/user-attachments/assets/5fb8d2f3-5e23-488a-90cd-8959c2fe9410)
+![Uploading 2025-01-24182439-ezgif.com-video-to-gif-converter.gif…]()
